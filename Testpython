@@ -7,7 +7,6 @@ from pymongo import MongoClient
 
 # MongoDB Connection
 MONGO_URI = st.secrets["MONGO_URI"]
-client = MongoClient(MONGO_URI)
 @st.cache_data
 def fetch_data_from_mongodb():
     try:
@@ -20,6 +19,9 @@ def fetch_data_from_mongodb():
     except Exception as e:
         st.error(f"Error connecting to MongoDB: {e}")
         return None
+df = fetch_data_from_mongodb()
+if df is None:
+    st.stop()
 
 # Streamlit App
 st.title("📚 Genshin Weapon Stats")
