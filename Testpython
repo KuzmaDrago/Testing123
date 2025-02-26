@@ -8,25 +8,18 @@ from pymongo import MongoClient
 # MongoDB Connection
 MONGO_URI = st.secrets["MONGO_URI"]
 client = MongoClient(MONGO_URI)
-#MONGO_URI = "mongodb+srv://Cluster0:123@cluster0.wi9dl.mongodb.net/"
-#client = MongoClient(MONGO_URI)
 @st.cache_data
 def fetch_data_from_mongodb():
     try:
         client = MongoClient(MONGO_URI)
-        db = client["your_database"] #replace with your database name.
-        collection = db["your_collection"] #replace with your collection name.
+        db = client["Test1234"] #replace with your database name.
+        collection = db["sample"] #replace with your collection name.
         data = list(collection.find())
         df = pd.DataFrame(data)
         return df
     except Exception as e:
         st.error(f"Error connecting to MongoDB: {e}")
         return None
-
-df = fetch_data_from_mongodb()
-# Select Database and Collection
-db = client["Test1234"]
-collection = db["sample"]
 
 # Streamlit App
 st.title("📚 Genshin Weapon Stats")
