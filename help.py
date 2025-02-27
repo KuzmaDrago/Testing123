@@ -31,30 +31,9 @@ cards = list(collection.find({}, {"_id": 0}))
 #-------------------------------#
 
 #print logo (only at the start)
-def print_logo():
-    print("""
-  __  __ _____ ____       _       _        _                    
- |  \/  |_   _/ ___|   __| | __ _| |_ __ _| |__   __ _ ___  ___ 
- | |\/| | | || |  _   / _` |/ _` | __/ _` | '_ \ / _` / __|/ _ \ 
- | |  | | | || |_| | | (_| | (_| | || (_| | |_) | (_| \__ \  __/
- |_|  |_| |_| \____|  \__,_|\__,_|\__\__,_|_.__/ \__,_|___/\___|
-""")
 
 #print menu (after every command)
-def print_menu():
-    print("""
-_________________________________________________________________
-| 0 | Exit
-| 1 | Load database
-| 2 | Count cards in the database
-| 3 | Add a new card
-| 4 | Remove existing card
-| 5 | Search card by name
-| 6 | Filter cards by maximum mana cost and color
-| 7 | Retrieves the top 5 cards by power
-| 8 | Find card from description
-‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
-""")
+
 
 #clear the terminal for a clean view (platform indipendent)
 def clear_terminal():
